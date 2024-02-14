@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: "Cal Sans";
-  src: url("https://cal.com/cal.ttf");
+  font-family: "Be Vietnam Pro";
+  src: url("https://github.com/bettergui/BeVietnamPro/raw/main/fonts/ttf/BeVietnamPro-Regular.ttf");
 }
 
 h1,
@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Cal Sans";
+  font-family: "Be Vietnam Pro";
   font-weight: normal;
   letter-spacing: normal;
 }
