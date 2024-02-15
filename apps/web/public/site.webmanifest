@@ -1,6 +1,6 @@
 {
-    "name": "Cal.com",
-    "short_name": "Cal.com",
+    "name": "Konvergo CAL",
+    "short_name": "CAL",
     "icons": [
         {
             "src": "/api/logo?type=android-chrome-192",
