@@ -2,10 +2,13 @@
 
 # Définit les chaînes de recherche et de remplacement
 SEARCH1="Cal.com"
-SEARCH2="Calendso" # Ancien nom utilisé pour Cal.com
+SEARCH2="Calendso" # Ancien nom utilisé pour Konvergo CAL
 REPLACE="Konvergo CAL"
 DIRECTORY="./"
 EXCLUDE_DIR="--exclude-dir=node_modules"
+
+# Obtient le chemin absolu du script actuel
+SCRIPT_NAME=$(basename "$0")
 
 # Initialise les compteurs
 countFiles=0
@@ -20,6 +23,11 @@ FILES=$(grep -Rl $EXCLUDE_DIR -E "$SEARCH1|$SEARCH2" $DIRECTORY)
 # Boucle à travers les fichiers trouvés
 for FILE in $FILES
 do
+  # Exclut le script actuel de la modification
+  if [[ $(basename "$FILE") == "$SCRIPT_NAME" ]]; then
+    continue
+  fi
+  
   echo "--------------------------------------------------------------------------------"
   echo "Analyse de $FILE"
   let countFiles++
@@ -32,7 +40,7 @@ do
     grep -q "$SEARCH2" "$FILE" && let countSearch2++
     
     # Exécute le remplacement
-    if sed -i "s/$SEARCH1/$REPLACE/g; s/$SEARCH2/$REPLACE/g" "$FILE"; then
+    if sed -i "" "s/$SEARCH1/$REPLACE/g; s/$SEARCH2/$REPLACE/g" "$FILE"; then
       echo "Remplacement effectué dans $FILE"
       let countReplaced++
     else
